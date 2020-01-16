@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto 80px;
+}
+
+.flex-container>div {
+    width: 200px;
+    height: 200px;
+    background: gray;
+    text-align: center;
+    margin: 3px;
+    padding-top: 40px;
+}
+
+.header_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto 80px;
+    margin-bottom: 15px;
+    background: #6A9113;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #141517, #6A9113);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6A9113, #141517);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+button {
+    width: 100px;
+    padding: 10px 10px;
+    font-weight: 500;
+    /* font-size: 1em; */
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 2px;
+    border: 0px;
+}
+
+#stopBtn {
+    background-color: #ff0000;
+}
+
+#generateBtn {
+    background-color: #00ff00;
+}
+
+#userData {
+    margin: 10px;
+    border-radius: 5px;
+    width: 250px;
+    padding: 10px 10px;
+    display: inline-block;
+    border: 0px;
+    text-align: center;
+
+}
