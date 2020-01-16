@@ -1,21 +1,27 @@
 //A SIMPLE HEXA COLOR RANDOMIZER
 
-const flexContainer = document.querySelector('.flex-container')
-const headContainer = document.querySelector('.container')
+//STILL TO ADD: mouseover effect
+//Use 'this' to get stuff out of obj
+window.addEventListener('load', () => {
+    console.log('Window loaded')
+})
+
+const flexContainer = document.querySelector('.page__container')
+const headContainer = document.querySelector('header__container')
 const generateBtn = document.getElementById('generateBtn')
 const stopBtn = document.getElementById('stopBtn')
-const userInput = document.getElementById('userData')
+const userInput = document.querySelector('.page__control')
 
 //Generate colors
 const generateHexaCode = () => {
 
     let string = '0123456789abcdef'
-    let hexaColor = '#'
+    let color = '#'
     for (let i = 0; i < 6; i++) {
         let index = Math.floor(Math.random() * string.length)
-        hexaColor += string[index]
+        color += string[index]
     }
-    return hexaColor
+    return color
 }
 
 generateBtn.addEventListener('click', () => {
@@ -23,18 +29,19 @@ generateBtn.addEventListener('click', () => {
 })
 
 validator = () => {
-    if (userData.value <= 0) {
+    if (page__control.value <= 0) {
         alert('Please enter number greater than 0.')
     }
-    //  else if (userData.value != userData.type) {
+    //  else if (page__control.value != page__control.type) {
     //     alert('That is not a number.')} 
     else {
         clearWindow()
     }
+    console.log(page__control.value)
 }
 
-clearWindow = () => {
-    if (flexContainer.textContent != '') {
+function clearWindow() {
+    if (flexContainer.textContent !== '') {
         flexContainer.textContent = ''
         generator()
     } else {
@@ -42,11 +49,9 @@ clearWindow = () => {
     }
 }
 
-generator = () => {
-
-    const getInput = document.querySelector('#userData').value
-
-    for (let i = 1; i <= getInput; i++) {
+const generator = () => {
+    const getInput = document.querySelector('.page__control').value
+    for (let i = 1; i <= getInput.value; i++) {
         const codeDiv = document.createElement('div')
         const code = document.createElement('h2')
         const copyBtn = document.createElement('button')
@@ -67,6 +72,10 @@ generator = () => {
                 codeDiv.style.background = bgColor
             }
         }
+
+        codeDiv.appendChild(code)
+        codeDiv.appendChild(copyBtn)
+
         //clearInterval
         function stopTimer() {
             clearInterval(timerFunc)
@@ -82,13 +91,21 @@ generator = () => {
             textArea.remove()
         }
         const timerFunc = setInterval(backgroundGen, 2000)
-        codeDiv.appendChild(code)
-        codeDiv.appendChild(copyBtn)
+
         flexContainer.append(codeDiv)
 
     }
 }
 
+// const getFormValue = () => {
+// // let getInput = document.querySelector('.page__control')
+// let num = page__control.value
+// return num
+// console.log(num)
+// }
+// console.log(userInput.value)
+
+
 function clearInput() {
-    document.querySelector('#userData').value = ''
+    document.querySelector('userInput').value = ''
 }
